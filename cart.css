@@ -1,0 +1,174 @@
+
+:root{
+    --accent: rgb(244,92,54);
+    --accent2: rgb(189, 56, 22);
+    --bg: #fff;
+    --text: #060606;
+}
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins', sans-serif;
+    
+}
+ body{
+    min-height: 100vh;
+    background: var(--bg);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+li{
+    list-style-type: none;
+}
+ /* ##############################  */
+ /***  Naviguation****/
+ /* ##############################  */
+ nav{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:var(--bg);
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,.2);
+ }
+
+nav a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.naviguation{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.link_items{
+ display: flex; 
+ margin-top: 20px;
+}
+.link_items ul{
+    display: flex;
+}
+.naviguation ul a {
+      display: inline-block;
+      border: transparent;
+      padding: 5px 20px;
+      cursor: pointer;
+      position: relative;
+      color: #4b4b4b;
+}
+.naviguation ul a::before,
+.naviguation ul a::after{
+      content: "";
+      height: 2px;
+      background:var(--accent);
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      transition: all .2s linear;
+      width: 0%;
+}
+.naviguation ul a::before{
+      bottom: 0px;
+}
+.naviguation ul a::after{
+     top: 0px;
+}
+.naviguation a:hover::before,
+.naviguation a.active::before,
+.naviguation a:hover::after,
+.naviguation a.active::after
+{  
+    color: #060606;
+    width: 100%; 
+}
+.logo-container .logo{
+    width: 30px;
+}
+
+
+#burger-menu{
+    margin-right: 15px;
+    color: #4b4b4b;
+    cursor: pointer; 
+    width: 30px;
+    height: 30px;
+}
+.cont-lignes{
+    width: 25px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.ligne{
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #060606;
+    border-radius:20px;
+    border-radius: 0 0 1px 0 rgb(0,0,0,.2);
+    transition: all 0.1s ease-in-out;
+}
+.cont-lignes:hover .ligne{
+    background-color: var(--accent);
+}
+.ligne:nth-child(1){
+    top: 0;
+}
+.ligne:nth-child(2){
+    top: 6px;
+}
+.ligne:nth-child(3){
+    top: 12px;
+}
+#burger-menu:hover{
+   color: var(--accent);
+}
+.burguer-icon{
+    display: none;
+}
+
+.carts{
+    padding-top: 150px;
+}
+/* ################# Breakpoint #################*/
+@media screen and (max-width:500px){
+    .naviguation .link_items{
+        display: none;
+        justify-content: center;
+        position: absolute;
+        top: 72px;
+        right: -400%;
+       box-shadow: 0 0 4px rgb(0,0,0,.2);
+    }
+    .link_items li{
+        padding: 5px 0;
+    }
+    .burguer-icon.active{
+        .ligne:nth-child(1){
+            transform: rotate(135deg);
+            top: 8px;
+        }
+        .ligne:nth-child(2){
+            transform: translateX(-30px);
+            opacity: 0;
+        }
+        .ligne:nth-child(3){
+            transform: rotate(-135deg);
+            top: 8px;
+        }
+    }
+    .burguer-icon{
+        display: block;
+    }
+    .link_items.active{
+        display: block;
+    }
+}
